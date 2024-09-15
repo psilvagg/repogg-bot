@@ -1,14 +1,22 @@
-#pyTelegramBotAPI
+import time
 import telebot as tl
 import os
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-print("Seja Bem-Vindo!\nSuporte:discord.gg/VDsf74sEgz\n\n")
-print("> Gere o TOKEN do seu BOT através do BotFather --> {https://t.me/BotFather}")
-tokenUser = (input("Insira o TOKEN do seu BOT gerado pelo BotFather: "))
+def limpar_tela():
+    os.system('cls')
 
-#Coloque aqui seu token gerado pelo BotFather
-bot = tl.TeleBot(tokenUser)
+while 1:
+    print("Seja Bem-Vindo!\nSuporte:discord.gg/VDsf74sEgz\n\n")
+    print("> Gere o TOKEN do seu BOT através do BotFather --> {https://t.me/BotFather}")
+    tokenUser = (input("Insira o TOKEN do seu BOT gerado pelo BotFather: "))
+    if tokenUser == '' or len(tokenUser) < 10:
+        os.system('cls')
+        print("> O token inserido é inválido.")
+    else:
+        bot = tl.TeleBot(tokenUser)
+        print("O bot está online!")
+        break
 
 # Dicionário para armazenar os IDs das mensagens
 messages = {}
@@ -18,7 +26,7 @@ messages = {}
 # 2 - O arquivo se encontra na pasta do bot
 # 3 - discord.gg/VDsf74sEgz
 
-print("BOT ON!")
+
 
 @bot.message_handler(commands=["start"])
 def start(mensagem):
