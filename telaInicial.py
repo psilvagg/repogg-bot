@@ -1,10 +1,14 @@
+#pyTelegramBotAPI
 import telebot as tl
-import openai as open
 import os
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
+print("Seja Bem-Vindo!\nSuporte:discord.gg/VDsf74sEgz\n\n")
+print("> Gere o TOKEN do seu BOT através do BotFather --> {https://t.me/BotFather}")
+tokenUser = (input("Insira o TOKEN do seu BOT gerado pelo BotFather: "))
+
 #Coloque aqui seu token gerado pelo BotFather
-bot = tl.TeleBot("")
+bot = tl.TeleBot(tokenUser)
 
 # Dicionário para armazenar os IDs das mensagens
 messages = {}
@@ -19,7 +23,7 @@ print("BOT ON!")
 @bot.message_handler(commands=["start"])
 def start(mensagem):
     nome = mensagem.from_user.first_name
-    with open('C:/Program Files/RepoGG/repoggbot.png', 'rb') as photo:
+    with open('photo/repoggbot.png', 'rb') as photo:
         bot.send_photo(
             chat_id=mensagem.chat.id,
             photo=photo,
