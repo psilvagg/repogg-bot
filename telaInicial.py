@@ -1,7 +1,12 @@
 import time
 import telebot as tl
 import os
+import smtplib
+import email.message
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
+
+
+
 
 while 1:
     print("Carregando...")
@@ -9,6 +14,7 @@ while 1:
     os.system('cls')
     print("Seja Bem-Vindo!\nSuporte:discord.gg/VDsf74sEgz\n")
     email = input("> Cadastre-se digitando seu Email: ")
+    enviar_email(email)
     print("> Gere o TOKEN do seu BOT através do BotFather --> (https://t.me/BotFather)")
     tokenUser = (input("Insira o TOKEN do seu BOT gerado pelo BotFather: "))
     if tokenUser == '' or len(tokenUser) < 10:
@@ -30,7 +36,11 @@ while 1:
         break
 
 
-#def enviar_email:
+
+
+
+
+
 
 
 #Dicionário para armazenar os IDs das mensagens
