@@ -3,22 +3,37 @@ import telebot as tl
 import os
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-def limpar_tela():
-    os.system('cls')
-
 while 1:
-    print("Seja Bem-Vindo!\nSuporte:discord.gg/VDsf74sEgz\n\n")
-    print("> Gere o TOKEN do seu BOT através do BotFather --> {https://t.me/BotFather}")
+    print("Carregando...")
+    time.sleep(5)
+    os.system('cls')
+    print("Seja Bem-Vindo!\nSuporte:discord.gg/VDsf74sEgz\n")
+    email = input("> Cadastre-se digitando seu Email: ")
+    print("> Gere o TOKEN do seu BOT através do BotFather --> (https://t.me/BotFather)")
     tokenUser = (input("Insira o TOKEN do seu BOT gerado pelo BotFather: "))
     if tokenUser == '' or len(tokenUser) < 10:
         os.system('cls')
-        print("> O token inserido é inválido.")
+        print("Verificando TOKEN...")
+        time.sleep(5)
+        print("Quase lá!")
+        time.sleep(3)
+        print("> O token inserido é inválido. Tente novamente!")
+        print(">> Aperte CTRL + C simultaneamente para finalizar.")
     else:
         bot = tl.TeleBot(tokenUser)
-        print("O bot está online!")
+        os.system('cls')
+        print("Verificando TOKEN...")
+        time.sleep(5)
+        print("Quase lá!")
+        time.sleep(3)
+        print("Token Validado com sucesso! Seu bot está online!")
         break
 
-# Dicionário para armazenar os IDs das mensagens
+
+#def enviar_email:
+
+
+#Dicionário para armazenar os IDs das mensagens
 messages = {}
 
 #Instruções
