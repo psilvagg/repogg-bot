@@ -7,6 +7,7 @@ from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 def enviarEmail(email):
+    time.sleep(6)
     bodyEmail = """
     <!doctype html>
 <html>
@@ -361,21 +362,19 @@ def enviarEmail(email):
     msg['To'] = email
     msg.set_content(bodyEmail, subtype='html')
     password = 'blcntqshzvawjtnr'
-
     # Configuração do servidor SMTP
     with smtplib.SMTP('smtp.office365.com', 587) as s:
         s.starttls()
         s.login('helperbot@outlook.com.br', password)  # Use apenas o e-mail
         s.send_message(msg)
-
-    print('E-mail enviado com sucesso!')
+    print('Cadastro realizado com sucesso! \n')
 
 
 while True:
     print("Carregando...")
     time.sleep(2)
     os.system('cls' if os.name == 'nt' else 'clear')
-    print("Seja Bem-Vindo!\nSuporte: discord.gg/VDsf74sEgz\n")
+    print("Seja Bem-Vindo!\nSuporte: https://discord.gg/VDsf74sEgz\n")
     email = input("> Cadastre-se digitando seu Email: ")
     enviarEmail(email)
     print("> Gere o TOKEN do seu BOT através do BotFather --> (https://t.me/BotFather)")
@@ -409,7 +408,6 @@ messages = {}
 # 1 - Caminho padrão da foto: C:/Program Files/RepoGG/repoggbot.png
 # 2 - O arquivo se encontra na pasta do bot
 # 3 - discord.gg/VDsf74sEgz
-
 
 
 @bot.message_handler(commands=["start"])
